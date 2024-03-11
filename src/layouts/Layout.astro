@@ -1,0 +1,40 @@
+---
+import '@fontsource-variable/dm-sans';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A Coffee Listing Landing Page" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+  :root {
+    --bg-color: #111315;
+    --modal-bg-color: #1B1D1F;
+    --text: #FEF7EE;
+    --gray: #6F757C;
+    --red: #ED735D;
+    --green: #BEE3CC;
+    --yellow: #F6C768;
+  }
+
+	html {
+    font-family: 'DM Sans Variable', system-ui, sans-serif;
+    background: var(--bg-color);
+    color-scheme: light dark;
+	}
+</style>
