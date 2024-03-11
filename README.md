@@ -1,4 +1,4 @@
-# devChallenges Coffe Listing Page
+# devChallenges Coffee Listing Page
 
 ## 🧞 Commands
 
