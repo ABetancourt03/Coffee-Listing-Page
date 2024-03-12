@@ -1,9 +1,9 @@
 ---
 import ModalVector from "../icons/ModalVector.astro";
 import Card from "./Card.astro";
-import { getAllCoffees } from "../services/coffees.ts"
+import { getAllCoffees } from "../services/coffees.ts";
 
-await getAllCoffees()
+const coffees = await getAllCoffees();
 ---
 
 <article
@@ -31,6 +31,22 @@ await getAllCoffees()
       </button>
     </div>
   </section>
+
+  <div class="coffees-container">
+    {
+      coffees.map((coffee) => (
+        <Card
+          name={coffee.name}
+          image={coffee.image}
+          price={coffee.price}
+          rating={coffee.rating}
+          votes={coffee.votes}
+          popular={coffee.popular}
+          available={coffee.available}
+        />
+      ))
+    }
+  </div>
 </article>
 
 <style>
