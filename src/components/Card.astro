@@ -1,44 +1,45 @@
 ---
 import PricePill from "./PricePill.astro";
 import StarFill from "../icons/StarFill.astro";
+import Star from "../icons/Star.astro";
 
 interface Props {
-  name: string;
-  price: string;
-  image: string;
+  name: String;
+  price: String;
+  image: String;
   popular: Boolean;
+  votes: Number;
+  rating: Number;
   available: Boolean;
-  votes: number;
-  rating: number;
 }
 
-const { name, price, image, popular, available, votes, rating } = Astro.props;
+const { name, price, image, popular, votes, rating } = Astro.props;
 ---
 
-<article class="2xl:w-[300px] sm:w-[90%] lg:w-[50%] xl:[150px]">
+<article class="sm:w-[90%] lg:w-[50%] xl:w-[500px]">
   <div>
-    <div
-      class="absolute m-3 popular w-[90px] text-center rounded-2xl py-[3px] font-bold"
-    >
-      <p>Popular</p>
-    </div>
+    {
+      popular && (
+        <div class="absolute m-3 popular w-[90px] text-center rounded-2xl py-[3px] font-bold">
+          <p>Popular</p>
+        </div>
+      )
+    }
 
-    <img
-      class="w-full rounded-xl"
-      src="https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg"
-      alt="Cappuccino"
-    />
+    <img class="w-full rounded-xl" src={image} alt={name} />
 
     <div class="flex flex-row justify-between w-full h-auto mt-[15px]">
-      <h3 class="name">Cappuccino</h3>
+      <h3 class="name">{name}</h3>
 
-      <PricePill class="font-extrabold" price="$5.20" />
+      <PricePill class="px-2 py-1 font-extrabold" price={price} />
     </div>
 
     <div class="flex flex-row gap-1 my-2">
-      <StarFill />
+      {votes > 0 ? <StarFill /> : <Star />}
       <p>
-        <span class="rating">4.7</span><span class="votes"> (65 votes)</span>
+        <span class="rating">{rating}</span><span class="votes">
+          ({votes < 1 ? "No ratings" : votes})</span
+        >
       </p>
     </div>
   </div>
