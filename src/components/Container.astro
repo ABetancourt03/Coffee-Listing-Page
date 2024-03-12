@@ -1,0 +1,59 @@
+---
+import ModalVector from "../icons/ModalVector.astro";
+import Card from "./Card.astro";
+import { getAllCoffees } from "../services/coffees.ts"
+
+await getAllCoffees()
+---
+
+<article
+  class="flex flex-col justify-center items-center absolute rounded-2xl font-semibold top-28 p-10 sm:w-[80%]"
+>
+  <ModalVector />
+
+  <section class="flex flex-col gap-y-5 justify-center text-center sm:w-[80%]">
+    <h2 class="text-4xl">Our Collection</h2>
+    <p class="text-xl">
+      Introducing our Coffee Collection, a selection of unique coffees from
+      different roast types and origins, expertly roasted in small batches and
+      shipped fresh weekly.
+    </p>
+  </section>
+
+  <section class="flex w-[80%] justify-center">
+    <div class="flex flex-row my-8 justifi-center gap-8">
+      <button id="all" class="hover:opacity-90 transition active">
+        All Products
+      </button>
+
+      <button id="available" class="hover:opacity-90 transition">
+        Available Now
+      </button>
+    </div>
+  </section>
+</article>
+
+<style>
+  article {
+    background-color: var(--bg-container);
+  }
+
+  h2 {
+    color: var(--text);
+  }
+
+  p {
+    color: var(--gray);
+  }
+
+  button {
+    color: var(--text);
+  }
+
+  .active {
+    color: var(--text);
+    background-color: var(--gray);
+    padding: 8px 18px 8px 18px;
+    border-radius: 10px;
+  }
+</style>
