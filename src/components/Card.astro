@@ -13,7 +13,7 @@ interface Props {
   available: Boolean;
 }
 
-const { name, price, image, popular, votes, rating } = Astro.props;
+const { name, price, image, popular, votes, rating, available } = Astro.props;
 ---
 
 <article class="sm:w-[90%] lg:w-[50%] xl:w-[500px]">
@@ -34,13 +34,23 @@ const { name, price, image, popular, votes, rating } = Astro.props;
       <PricePill class="px-2 py-1 font-extrabold" price={price} />
     </div>
 
-    <div class="flex flex-row gap-1 my-2">
-      {votes > 0 ? <StarFill /> : <Star />}
-      <p>
-        <span class="rating">{rating}</span><span class="votes">
-          ({votes < 1 ? "No ratings" : votes})</span
-        >
-      </p>
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row gap-1 my-2">
+        {votes > 0 ? <StarFill /> : <Star />}
+
+        <p>
+          <span class="rating">{rating}</span><span class="votes">
+            ({votes < 1 ? "No ratings" : votes})</span
+          >
+        </p>
+      </div>
+
+      <div>
+        {
+        available === false && (
+          <p class="sold-out px-2 py-2">Sold Out</p>
+        )}
+      </div>
     </div>
   </div>
 </article>
@@ -64,5 +74,9 @@ const { name, price, image, popular, votes, rating } = Astro.props;
 
   .votes {
     color: var(--gray);
+  }
+
+  .sold-out {
+    color: var(--red)
   }
 </style>
