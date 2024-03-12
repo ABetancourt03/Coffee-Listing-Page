@@ -1,0 +1,67 @@
+---
+import PricePill from "./PricePill.astro";
+import StarFill from "../icons/StarFill.astro";
+
+interface Props {
+  name: string;
+  price: string;
+  image: string;
+  popular: Boolean;
+  available: Boolean;
+  votes: number;
+  rating: number;
+}
+
+const { name, price, image, popular, available, votes, rating } = Astro.props;
+---
+
+<article class="2xl:w-[300px] sm:w-[90%] lg:w-[50%] xl:[150px]">
+  <div>
+    <div
+      class="absolute m-3 popular w-[90px] text-center rounded-2xl py-[3px] font-bold"
+    >
+      <p>Popular</p>
+    </div>
+
+    <img
+      class="w-full rounded-xl"
+      src="https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg"
+      alt="Cappuccino"
+    />
+
+    <div class="flex flex-row justify-between w-full h-auto mt-[15px]">
+      <h3 class="name">Cappuccino</h3>
+
+      <PricePill class="font-extrabold" price="$5.20" />
+    </div>
+
+    <div class="flex flex-row gap-1 my-2">
+      <StarFill />
+      <p>
+        <span class="rating">4.7</span><span class="votes"> (65 votes)</span>
+      </p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .popular {
+    font-size: 14px;
+    background-color: var(--yellow);
+    color: var(--bg-container);
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text);
+  }
+
+  .rating {
+    color: var(--text);
+  }
+
+  .votes {
+    color: var(--gray);
+  }
+</style>
