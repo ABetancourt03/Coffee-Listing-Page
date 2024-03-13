@@ -46,10 +46,7 @@ const { name, price, image, popular, votes, rating, available } = Astro.props;
       </div>
 
       <div>
-        {
-        available === false && (
-          <p class="sold-out px-2 py-2">Sold Out</p>
-        )}
+        {available === false && <p class="sold-out px-2 py-2">Sold Out</p>}
       </div>
     </div>
   </div>
@@ -77,7 +74,7 @@ const { name, price, image, popular, votes, rating, available } = Astro.props;
   }
 
   .sold-out {
-    color: var(--red)
+    color: var(--red);
   }
 
   @media (min-width: 300px) {
