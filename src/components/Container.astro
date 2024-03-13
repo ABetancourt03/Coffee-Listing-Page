@@ -7,11 +7,11 @@ const coffees = await getAllCoffees();
 ---
 
 <article
-  class="flex flex-col justify-center items-center absolute rounded-2xl font-semibold top-28 p-10 sm:w-[80%]"
+  class="flex flex-col justify-center items-center absolute rounded-2xl font-semibold top-28 p-10 sm:w-[90%]"
 >
   <ModalVector />
 
-  <section class="flex flex-col gap-y-5 justify-center text-center sm:w-[80%]">
+  <section class="flex flex-col gap-y-5 justify-center text-center w-80 sm:w-[410px] lg:w-[650px] xl:w-[650px] 2xl:w-[650px]">
     <h2 class="text-4xl">Our Collection</h2>
     <p class="text-xl">
       Introducing our Coffee Collection, a selection of unique coffees from
@@ -32,7 +32,7 @@ const coffees = await getAllCoffees();
     </div>
   </section>
 
-  <div class="coffees-container">
+  <div class="grid gap-x-12 xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1">
     {
       coffees.map((coffee) => (
         <Card
