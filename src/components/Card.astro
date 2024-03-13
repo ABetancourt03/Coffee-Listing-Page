@@ -16,7 +16,7 @@ interface Props {
 const { name, price, image, popular, votes, rating, available } = Astro.props;
 ---
 
-<article class="w-[350px] 2xl:w-[380px] lg:w-[320px] xl:my-14 bg-red lg:my-10 sm:my-5">
+<article class="w-[350px] 2xl:w-[380px] lg:w-[320px] xl:my-14 lg:my-10 sm:my-5">
   <div>
     {
       popular && (
@@ -78,5 +78,11 @@ const { name, price, image, popular, votes, rating, available } = Astro.props;
 
   .sold-out {
     color: var(--red)
+  }
+
+  @media (min-width: 300px) {
+    article {
+      margin: 30px 0 30px 0;
+    }
   }
 </style>
