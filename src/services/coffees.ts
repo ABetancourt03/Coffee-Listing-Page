@@ -9,3 +9,10 @@ export const getAllCoffees = async () => {
   const coffees = (await res.json());
   return coffees;
 }
+
+export const getAvailableCoffees = async () => {
+  const coffees = await getAllCoffees()
+  let filteredCoffes = coffees.filter(coffee => coffee.available === true)
+
+  return filteredCoffes
+}
