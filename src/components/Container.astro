@@ -1,9 +1,8 @@
 ---
 import ModalVector from "../icons/ModalVector.astro";
 import Card from "./Card.astro";
-import { getAllCoffees } from "../services/coffees.ts";
 
-const coffees = await getAllCoffees();
+const { coffees } = Astro.props;
 ---
 
 <article
@@ -24,13 +23,21 @@ const coffees = await getAllCoffees();
 
   <section class="flex w-[80%] justify-center">
     <div class="flex flex-row my-8 justifi-center gap-8">
-      <button id="all" class="hover:opacity-90 transition active">
+      <a
+        href="/"
+        id="all"
+        class="hover:opacity-80 transition cursor-pointer active"
+      >
         All Products
-      </button>
+      </a>
 
-      <button id="available" class="hover:opacity-90 transition">
+      <a
+        href="/available"
+        id="available"
+        class="hover:opacity-80 cursor-pointer transition"
+      >
         Available Now
-      </button>
+      </a>
     </div>
   </section>
 
@@ -64,14 +71,13 @@ const coffees = await getAllCoffees();
     color: var(--gray);
   }
 
-  button {
+  a {
     color: var(--text);
+    padding: 8px 18px 8px 18px;
   }
 
   .active {
-    color: var(--text);
     background-color: var(--gray);
-    padding: 8px 18px 8px 18px;
     border-radius: 10px;
   }
 </style>

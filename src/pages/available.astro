@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
-import { getAllCoffees } from "../services/coffees";
+import { getAvailableCoffees } from "../services/coffees";
 
-const coffees = await getAllCoffees();
+const coffees = await getAvailableCoffees();
 ---
 
 <Layout title="Coffee Listing Page">
