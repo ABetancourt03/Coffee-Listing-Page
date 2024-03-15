@@ -1,4 +1,5 @@
 ---
+import GithubIcon from "../icons/GithubIcon.astro";
 import ModalVector from "../icons/ModalVector.astro";
 import Card from "./Card.astro";
 
@@ -8,7 +9,19 @@ const { coffees } = Astro.props;
 <article
   class="flex flex-col justify-center items-center absolute rounded-2xl font-semibold top-28 p-10 sm:w-[90%]"
 >
-  <ModalVector />
+  <div class="flex flex-row justify-between w-full">
+    <a
+      class="flex flex-col items-center hover:scale-105 hover:opacity-80 transition"
+      href="https://github.com/ABetancourt03/Coffee-Listing-Page"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <GithubIcon />
+      <p>Github</p>
+    </a>
+
+    <ModalVector />
+  </div>
 
   <section
     class="flex flex-col gap-y-5 justify-center text-center w-80 sm:w-[410px] lg:w-[650px] xl:w-[650px] 2xl:w-[650px]"
@@ -23,22 +36,12 @@ const { coffees } = Astro.props;
 
   <section class="flex w-[80%] justify-center">
     <div class="flex flex-row my-8 justifi-center gap-8">
-      <button
-        id="all"
-        class="hover:opacity-80 transition active"
-      >
-        <a href="/">
-          All Products
-        </a>
+      <button id="all" class="hover:opacity-80 transition active">
+        <a href="/"> All Products </a>
       </button>
 
-      <button
-        id="available"
-        class="hover:opacity-80 transition"
-        >
-        <a href="/available">
-          Available Now
-        </a>
+      <button id="available" class="hover:opacity-80 transition">
+        <a href="/available"> Available Now </a>
       </button>
     </div>
   </section>
