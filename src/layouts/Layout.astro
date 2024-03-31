@@ -1,54 +1,54 @@
 ---
-import "@fontsource-variable/dm-sans";
+import "@fontsource-variable/dm-sans"
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="A Coffee Listing Landing Page" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <header>
-      <img class="bg-img" src="/bg-cafe.webp" alt="background image" />
-    </header>
-    <slot />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A Coffee Listing Landing Page" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<img class="bg-img" src="/bg-cafe.webp" alt="Imagen de Fondo" />
+		</header>
+		<slot />
+	</body>
 </html>
 <style is:global>
-  :root {
-    --black: #111315;
-    --bg-container: #1b1d1f;
-    --text: #fef7ee;
-    --gray: #6f757c;
-    --red: #ed735d;
-    --green: #bee3cc;
-    --yellow: #f6c768;
-  }
+	:root {
+		--black: #111315;
+		--bg-container: #1b1d1f;
+		--text: #fef7ee;
+		--gray: #6f757c;
+		--red: #ed735d;
+		--green: #bee3cc;
+		--yellow: #f6c768;
+	}
 
-  html {
-    font-family: "DM Sans Variable", system-ui, sans-serif;
-    background: var(--black);
-    color-scheme: light dark;
-  }
+	html {
+		font-family: "DM Sans Variable", system-ui, sans-serif;
+		background: var(--black);
+		color-scheme: light dark;
+	}
 
-  header {
-    width: 100%;
-    height: 200px;
-  }
+	header {
+		width: 100%;
+		height: 200px;
+	}
 
-  .bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+	.bg-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 </style>

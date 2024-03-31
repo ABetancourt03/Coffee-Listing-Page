@@ -1,85 +1,85 @@
 ---
-import PricePill from "./PricePill.astro";
-import StarFill from "../icons/StarFill.astro";
-import Star from "../icons/Star.astro";
+import Star from "../icons/Star.astro"
+import StarFill from "../icons/StarFill.astro"
+import PricePill from "./PricePill.astro"
 
 interface Props {
-  name: string;
-  price: string;
-  image: string;
-  popular: boolean;
-  votes: number;
-  rating: number;
-  available: boolean;
+	name: string
+	price: string
+	image: string
+	popular: boolean
+	votes: number
+	rating: number
+	available: boolean
 }
 
-const { name, price, image, popular, votes, rating, available } = Astro.props;
+const { name, price, image, popular, votes, rating, available } = Astro.props
 ---
 
-<article class="w-[350px] 2xl:w-[380px] lg:w-[320px] xl:my-14 lg:my-10 sm:my-5">
-  <div>
-    {
-      popular && (
-        <div class="absolute m-3 popular w-[90px] text-center rounded-2xl py-[3px] font-bold">
-          <p>Popular</p>
-        </div>
-      )
-    }
+<article class="w-[350px] sm:my-5 lg:my-10 lg:w-[320px] xl:my-14 2xl:w-[380px]">
+	<div>
+		{
+			popular && (
+				<div class="popular absolute m-3 w-[90px] rounded-2xl py-[3px] text-center font-bold">
+					<p>Popular</p>
+				</div>
+			)
+		}
 
-    <img class="w-full rounded-xl" src={image} alt={name} />
+		<img class="w-full rounded-xl" src={image} alt={name} />
 
-    <div class="flex flex-row justify-between w-full h-auto mt-[15px]">
-      <h3 class="name">{name}</h3>
+		<div class="mt-[15px] flex h-auto w-full flex-row justify-between">
+			<h3 class="name">{name}</h3>
 
-      <PricePill class="px-2 py-1 font-extrabold" price={price} />
-    </div>
+			<PricePill class="px-2 py-1 font-extrabold" price={price} />
+		</div>
 
-    <div class="flex flex-row justify-between">
-      <div class="flex flex-row gap-1 my-2">
-        {votes > 0 ? <StarFill /> : <Star />}
+		<div class="flex flex-row justify-between">
+			<div class="my-2 flex flex-row gap-1">
+				{votes > 0 ? <StarFill /> : <Star />}
 
-        <p>
-          <span class="rating">{rating}</span><span class="votes">
-            ({votes < 1 ? "No ratings" : votes})</span
-          >
-        </p>
-      </div>
+				<p>
+					<span class="rating">{rating}</span><span class="votes">
+						({votes < 1 ? "No ratings" : votes})</span
+					>
+				</p>
+			</div>
 
-      <div>
-        {available === false && <p class="sold-out px-2 py-2">Sold Out</p>}
-      </div>
-    </div>
-  </div>
+			<div>
+				{available === false && <p class="sold-out px-2 py-2">Sold Out</p>}
+			</div>
+		</div>
+	</div>
 </article>
 
 <style>
-  .popular {
-    font-size: 14px;
-    background-color: var(--yellow);
-    color: var(--bg-container);
-  }
+	.popular {
+		font-size: 14px;
+		background-color: var(--yellow);
+		color: var(--bg-container);
+	}
 
-  .name {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--text);
-  }
+	.name {
+		font-size: 20px;
+		font-weight: bold;
+		color: var(--text);
+	}
 
-  .rating {
-    color: var(--text);
-  }
+	.rating {
+		color: var(--text);
+	}
 
-  .votes {
-    color: var(--gray);
-  }
+	.votes {
+		color: var(--gray);
+	}
 
-  .sold-out {
-    color: var(--red);
-  }
+	.sold-out {
+		color: var(--red);
+	}
 
-  @media (min-width: 300px) {
-    article {
-      margin: 30px 0 30px 0;
-    }
-  }
+	@media (min-width: 300px) {
+		article {
+			margin: 30px 0 30px 0;
+		}
+	}
 </style>

@@ -1,13 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Container from "../components/Container.astro";
-import { getAvailableCoffees } from "../services/coffees";
+import Container from "../components/Container.astro"
+import Layout from "../layouts/Layout.astro"
+import { getAvailableCoffees } from "../services/coffees"
 
-const coffees = await getAvailableCoffees();
+const coffees = await getAvailableCoffees()
 ---
 
 <Layout title="Coffee Listing Page">
-  <main class="flex items-center justify-center">
-    <Container coffees={coffees} />
-  </main>
+	<main class="flex items-center justify-center">
+		<Container coffees={coffees} />
+	</main>
 </Layout>

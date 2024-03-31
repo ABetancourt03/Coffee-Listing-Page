@@ -1,20 +1,20 @@
 ---
 interface Props {
-  price: string;
-  class: string;
+	price: string
+	class: string
 }
 
-const { price } = Astro.props;
+const { price } = Astro.props
 ---
 
-<div class={Astro.props.class}>
-  <p>{price}</p>
+<div class:list={Astro.props.class}>
+	<p>{price}</p>
 </div>
 
 <style>
-  div {
-    color: var(--bg-container);
-    background-color: var(--green);
-    border-radius: 5px;
-  }
+	div {
+		color: var(--bg-container);
+		background-color: var(--green);
+		border-radius: 5px;
+	}
 </style>
