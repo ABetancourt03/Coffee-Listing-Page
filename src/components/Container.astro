@@ -35,13 +35,13 @@ const { coffees } = Astro.props
 
 	<section class="flex w-[80%] justify-center">
 		<div class="justifi-center my-8 flex flex-row gap-8">
-			<button id="all" class="active transition hover:opacity-80">
-				<a href="/"> All Products </a>
-			</button>
+			<a id="all" class="active rounded-lg px-4 py-2 transition hover:opacity-80" href="/">
+				All Products
+			</a>
 
-			<button id="available" class="transition hover:opacity-80">
-				<a href="/available"> Available Now </a>
-			</button>
+			<a id="available" class="rounded-lg px-4 py-2 transition hover:opacity-80" href="/available">
+				Available Now
+			</a>
 		</div>
 	</section>
 
@@ -92,7 +92,5 @@ const { coffees } = Astro.props
 
 	.active {
 		background-color: var(--gray);
-		padding: 8px 18px 8px 18px;
-		border-radius: 10px;
 	}
 </style>
