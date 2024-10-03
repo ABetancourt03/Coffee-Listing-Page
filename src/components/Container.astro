@@ -62,6 +62,17 @@ const { coffees } = Astro.props
 	</div>
 </article>
 
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const currentPath = window.location.pathname
+
+		if (currentPath === "/available") {
+			document.getElementById("available").classList.add("active")
+			document.getElementById("all").classList.remove("active")
+		}
+	})
+</script>
+
 <style>
 	article {
 		background-color: var(--bg-container);
